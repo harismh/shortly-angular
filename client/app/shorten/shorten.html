@@ -1,6 +1,14 @@
-<div id='container'>
+<div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
-
+  <form name="shortenLink" ng-submit="submitForm()" novalidate>
+    <input type="url" name="fullUrl" ng-model="fullUrl" 
+      ng-class="{ 'error' : shortenLink.fullUrl.$invalid && !shortenLink.fullUrl.$pristine }" 
+      required >
+      <p ng-show="shortenLink.fullUrl.$invalid && !shortenLink.fullUrl.$pristine">
+        Enter a valid URL
+      </p>
+    <button type="submit" ng-disabled="shortenLink.$invalid">Submit</button>
+  </form>
 </div>
 
 
